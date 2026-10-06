@@ -40,6 +40,14 @@
 <!-- pwa -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+		<style>
+    /* Bloqueia a seleção de texto pelo mouse */
+    body {
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10+ */
+        user-select: none; /* Padrão */
+    }
+</style>
         /* Moved styles for Install Button */
         #install-button {
             cursor: pointer;
@@ -461,6 +469,49 @@ One of the best games ever made! The graphics are iconic, and the gameplay is in
         </a>
     </div>
 <div style="display:none;"><a href="https://www.microsoft.com">Microsoft</a></div>
+	<script>
+    // Bloqueia o clique com o botão direito
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    // Bloqueia atalhos do teclado comuns para desenvolvedores e cópia
+    document.addEventListener('keydown', function(e) {
+        // F12
+        if (e.key === 'F12') {
+            e.preventDefault();
+        }
+        // Ctrl + Shift + I (Inspecionar)
+        if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+            e.preventDefault();
+        }
+        // Ctrl + Shift + J (Console)
+        if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+            e.preventDefault();
+        }
+        // Ctrl + Shift + C (Inspecionar Elemento)
+        if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+            e.preventDefault();
+        }
+        // Ctrl + U (Exibir código-fonte)
+        if (e.ctrlKey && e.key === 'u') {
+            e.preventDefault();
+        }
+        // Ctrl + C (Copiar)
+        if (e.ctrlKey && e.key === 'c') {
+            e.preventDefault();
+        }
+        // Ctrl + S (Salvar página)
+        if (e.ctrlKey && e.key === 's') {
+            e.preventDefault();
+        }
+    });
+
+    // Bloqueia o arrastar de imagens e elementos
+    document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+    });
+</script>
   </body>
   </html>
 ```eof
